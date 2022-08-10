@@ -1,37 +1,67 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/RoasterLmao/RoasterLmao.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+# Ruby Anticheat
+Hello! This anticheat is fully free, and is only for ROBLOX.
+Keep in mind, **Ruby Anticheat** is still not in **release**. After it is in release, it is gonna be in version **indev 1.0.0**.
+Inspired by:
+- Crystal Anticheat
+- WatchCat (roblox bedwars)
+- WatchDog (minecraft bedwars)
+## Punishments available for now
+Current punishments:
+`` Crash, Kick, Respawn, fakelagcharacter``
+Respawn is HIGHLY NOT RECCOMENDED.
+Punishment Descriptions:
+crash: Makes the screen blurry for the crashed player, and then makes the game completely unplayable (makes the client super laggy)
+kick: Kicks the player out of the game for any reason you want.
+respawn: Respawns the player's character.
+fakelagcharacter: Makes the player's character heavy and adds in an delayed walk just like in bedwars anticheat
+## Features
+- No illegal guis (gui must be placed in **LocalPlayer.PlayerGui** to work): Description - prevents exploiters from putting a GUI in their playergui. **(Whitelist will be in V1.0.1)**
+- Anti Platform Stand : Description - prevents exploiters from using some fly with platform stand, and prevents exploiters from standing in floor and not on floor.
+- Anti Jackets : Description - Prevents players from using multiplied clothing (e.g. Jackets, Roblox multiplied clothing shirts, etc)
+- Custom Settings in API (shared.RubyAnticheatAPI)
+- Strong clientsided Anticheat (self explainable)
+- Discord Webhook Sender API (It is in configs, down below)
+- Unremovable scripts from character (Not toggable, always enabled)
+and **more**!
+## Documentation
+```lua
+shared.RubyAnticheatAPI
+_G.RubyAnticheatAPI
 ```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/RoasterLmao/RoasterLmao.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+↑ CAUTION: _G.RUBYANTICHEATAPI DOES NOT WORK FOR NOW. PLEASE USE SHARED.RUBYANTICHEATAPI
+### you can use shared.RubyAnticheatAPI or _G.RubyAnticheatAPI, reccomended shared because _G is slower.
+Allows you to change settings, and detections level, and stuff.
+```lua
+shared.RubyAnticheatAPI.Configurations.Punishment = "Crash";
+```
+If the player gets flagged, the player will get crashed by the AntiCheat.
+```lua
+local AntiSpeedhack = shared.RubyAnticheatAPI.Configurations.MagnitudeAntiSpeedhack
+AntiSpeedhack.Enabled = true -- set by default to true
+AntiSpeedhack.Delay = 1 -- set by default to 1
+AntiSpeedhack.MaxDistance = 30 -- set by default to 30
+AntiSpeedhack.Punish = true -- set by default to true
+```
+Enabled: Enables the anticheat module
+Delay (SpeedHack): grabs the first position, after that it grabs the second position and then converts it to a **magnitude** (which is a length of the vector3 position), and then checks if it is greater to MaxDistance. If it is, it will flag the player. To punish the player, make sure the Punish on Speedhack is set to true.
+```lua
+local Antiflight = shared.RubyAnticheatAPI.Configurations.AntiFlight
+Enabled = true, -- set by default to true
+YLevelDetections = true, -- set by default to true
+ClientAnticheat = true, -- set by default to true
+Delay = 1 -- set by default to 1
+MaxYLevel = 200, -- set by default to 200, if your player gets punised for no reason try changing the MaxYLevel, or disable YLevelDetections.
+```
+Self explainable (Antiflight).
+Prevents exploiters from flying.
+```lua
+local aps = shared.RubyAnticheatAPI.Configurations.AntiPlatformStand
+apsEnabled = true,
+```
+↑ Sometimes prevents people from fly.
+```lua
+local Antigod = shared.RubyAnticheatAPI.Configurations.AntiGod
+Antigod = true,
+```
+↑ Prevents players from having GodMode. (Removing their Humanoid)
+More Documentations coming soon!
