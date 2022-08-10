@@ -137,23 +137,26 @@ After you made it, open the script and write or paste this script in there:
 ```lua
 local maxDistance = 20 -- set this to anything you want, the higher the more distance required to find an exploiter, do not set it under 16 or else every time you move you will get lagbacked.
 function vec1_vec2_to_magnitude(v1,v2) -- convert 2 vector3s into a magnitude
-    return (v1 - v2).Magnitude -- 2 vector3s into magnitude
+	return (v1 - v2).Magnitude -- 2 vector3s into magnitude
 end -- end function
-function get_plr_chr(plr) -- get players character
-    if plr["Character"] ~= nil and plr["Character"]["PrimaryPart"] ~= nil then
-        return plr.Character
-    end
+function get_plr_chr(plr): Model -- get players character
+	if plr["Character"] ~= nil and plr["Character"]["PrimaryPart"] ~= nil then
+		return plr.Character
+	end
 end
 game.Players.PlayerAdded:Connect(function(plr) -- run a script everytime a player joins
-    while wait() do -- loop
-        local first = get_plr_chr(plr).PrimaryPart.Position -- get first position
-        wait(1) -- wait 1 second
-        local second = get_plr_chr(plr).PrimaryPart.Position -- get second position
-        local dist = vec1_vec2_to_magnitude(second) -- get players distance
-        if dist > maxDistance then -- check if the distance is greater than the maxDistance (20 by default)
-            get_plr_chr(plr).PrimaryPart.CFrame = CFrame.new(first) -- teleport player back to place where it flagged
-       end
-    end
+	while wait() do -- loop
+		if not plr:FindFirstChild("HumanoidRootPart") then
+			repeat wait() until plr:FindFirstChild("HumanoidRootPart")
+		end
+		local first = get_plr_chr(plr):FindFirstChild("HumanoidRootPart").Position -- get first position
+		wait(1) -- wait 1 second
+		local second = get_plr_chr(plr):FindFirstChild("HumanoidRootPart").Position -- get second position
+		local dist = vec1_vec2_to_magnitude(second) -- get players distance
+		if dist > maxDistance then -- check if the distance is greater than the maxDistance (20 by default)
+			get_plr_chr(plr).PrimaryPart.CFrame = CFrame.new(first) -- teleport player back to place where it flagged
+		end
+	end
 end)
 ```
 You also can add this as a localscript into StarterPlayer => StarterCharacterScripts (NOT RECCOMENDED AS ITS BYPASSABLE)
