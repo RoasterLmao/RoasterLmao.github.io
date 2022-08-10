@@ -79,11 +79,10 @@ AntiSpeedhack.MaxDistance = 30 -- set by default to 30
 AntiSpeedhack.Punish = true -- set by default to true
 AntiGodmode.Enabled = true -- set by default to true
 AntiPlatformstand.Enabled = true -- set by default by true
-Enabled = true -- set by default to true
-YLevelDetections = true -- set by default to true
-ClientAnticheat = true -- set by default to true
-Delay = 1 -- set by default to 1
-MaxYLevel = 200 -- set by default to 200, if your player gets punished for no reason try changing the MaxYLevel, or disable YLevelDetections.
+AntiFlight.Enabled = true -- set by default to true
+AntiFlight.YLevelDetections = true -- set by default to true
+AntiFlight.ClientAnticheat = true -- set by default to true
+AntiFlight.MaxYLevel = 200 -- set by default to 200, if your player gets punished for no reason try changing the MaxYLevel, or disable YLevelDetections.
 ```
 ## Functions
 ```lua
