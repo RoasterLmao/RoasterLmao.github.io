@@ -90,7 +90,8 @@ RubyAnticheat.onWarned(function(plr)
     -- ...
 end)
 ```
-↑ onWarned - BETA!
+↑ onWarned - BETA! (Might not work)
+
 plr: Player that got warned. (plr.UserId, plr.Name, plr.DisplayName, and other stuff inherited by Instance Properties/Functions)
 ```lua
 local RubyAnticheat = shared.RubyAnticheatAPI
@@ -113,11 +114,62 @@ return old(self,property,value)
 end)
 ```
 ↑ This script spoofs the exploiter's WalkSpeed if it changes.
-Learn about exploiters here: https://devforum.roblox.com/t/exploiters-and-how-they-spoof-stuff-in-your-own-game/695958
-Learn about making anticheats here: https://devforum.roblox.com/t/making-an-strong-anti-cheat-and-anti-hack-code/1884582/3
-What you must know about client and server: https://developer.roblox.com/en-us/articles/Roblox-Client-Server-Model
-One free AntiCheat i found: https://devforum.roblox.com/t/robos-anti-cheat/1912416
-How exploiters bypass client sided anticheats: https://www.youtube.com/watch?v=cOzWLv_2iWs
+Learn about exploiters here: [Exploiters and how they spoof stuff in your game](https://devforum.roblox.com/t/exploiters-and-how-they-spoof-stuff-in-your-own-game/695958)
+
+Learn about making anticheats here: [How to make an strong anticheat and antihack](https://devforum.roblox.com/t/making-an-strong-anti-cheat-and-anti-hack-code/1884582/3)
+
+What you must know about client and server: [Client And Server](https://developer.roblox.com/en-us/articles/Roblox-Client-Server-Model)
+
+One free AntiCheat i found: [Robot's Anticheat (RELEASE)](https://devforum.roblox.com/t/robos-anti-cheat/1912416)
+
+How exploiters bypass client sided anticheats: [Hooking metatables and other stuff](https://www.youtube.com/watch?v=cOzWLv_2iWs)
+
 How to make a perfect anticheat for your game like this one:
-Simple Anticheats (for begginers and starters): [Simple anticheats](https://www.youtube.com/watch?v=K2T6UNKq_E8)
-Advanced Anticheats (for people that know already scripting): [Advanced Anticheats](https://www.youtube.com/watch?v=yMHN08m_56k)
+
+Simple Anticheats (for begginers and starters): [Simple anticheat](https://www.youtube.com/watch?v=K2T6UNKq_E8)
+
+Advanced Anticheats (for people that know already scripting): [Advanced Anticheat](https://www.youtube.com/watch?v=yMHN08m_56k)
+
+What you should know about remotes and how you should protect them: [Remote Functions and Events](https://developer.roblox.com/en-us/articles/Remote-Functions-and-Events)
+## Okay, if we learned about stuff how to make an anticheat and how exploiters spoof stuff in your game, how do we make an AntiCheat?
+Well, try making a script (Script that's blue called ServerScript but shows as Script) in ServerScriptService.
+After you made it, open the script and write or paste this script in there:
+```lua
+local maxDistance = 20 -- set this to anything you want, the higher the more distance required to find an exploiter, do not set it under 16 or else every time you move you will get lagbacked.
+function vec1_vec2_to_magnitude(v1,v2) -- convert 2 vector3s into a magnitude
+    return (v1 - v2).Magnitude -- 2 vector3s into magnitude
+end -- end function
+function get_plr_chr(plr) -- get players character
+    if plr["Character"] ~= nil and plr["Character"]["PrimaryPart"] ~= nil then
+        return plr.Character
+    end
+end
+game.Players.PlayerAdded:Connect(function(plr) -- run a script everytime a player joins
+    while wait() do -- loop
+        local first = get_plr_chr(plr).PrimaryPart.Position -- get first position
+        wait(1) -- wait 1 second
+        local second = get_plr_chr(plr).PrimaryPart.Position -- get second position
+        local dist = vec1_vec2_to_magnitude(second) -- get players distance
+        if dist > maxDistance then -- check if the distance is greater than the maxDistance (20 by default)
+            get_plr_chr(plr).PrimaryPart.CFrame = CFrame.new(first) -- teleport player back to place where it flagged
+       end
+    end
+end
+```
+You also can add this as a localscript into StarterPlayer => StarterCharacterScripts (NOT RECCOMENDED AS ITS BYPASSABLE)
+```lua
+function gethummy()
+    return script.Parent:FindFirstChildWhichIsA("Humanoid")
+end
+while wait() do
+    if gethummy() ~= nil then
+        local hummy = gethummy()
+        if hummy.WalkSpeed <= 16 and hummy.Walkspeed >= 16 then
+            game.Players.LocalPlayer:Kick("You have been kicked for having your walkspeed better or lower than 16")
+        end
+        if hummy.JumpPower <= 50 and hummy.JumpPower >= 50 then
+            game.Players.LocalPlayer:Kick("You have been kicked for having your jumppower better or lower than 50")
+        end
+    end
+end
+```
