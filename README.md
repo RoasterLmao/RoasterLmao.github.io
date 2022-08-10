@@ -66,11 +66,11 @@ Antigod = true
 ↑ Prevents players from having GodMode. (Removing their Humanoid)
 Full AntiCheat Code (Reccomended) that you can edit:
 ```lua
-local RubyAnticheat
-local AntiSpeedhack = shared.RubyAnticheatAPI.Configurations.MagnitudeAntiSpeedhack
-local AntiFlight = shared.RubyAnticheatAPI.Configurations.AntiFlight
-local AntiPlatformstand = shared.RubyAnticheatAPI.Configurations.AntiPlatformStand
-local AntiGodmode = shared.RubyAnticheatAPI.Configurations.AntiGod
+local RubyAnticheat = shared.RubyAnticheatAPI
+local AntiSpeedhack = RubyAnticheat.Configurations.MagnitudeAntiSpeedhack
+local AntiFlight = RubyAnticheat.Configurations.AntiFlight
+local AntiPlatformstand = RubyAnticheat.Configurations.AntiPlatformStand
+local AntiGodmode = RubyAnticheat.Configurations.AntiGod
 AntiSpeedhack.Enabled = true -- set by default to true
 AntiSpeedhack.Delay = 1 -- set by default to 1
 AntiSpeedhack.MaxDistance = 30 -- set by default to 30
@@ -83,4 +83,17 @@ ClientAnticheat = true -- set by default to true
 Delay = 1 -- set by default to 1
 MaxYLevel = 200 -- set by default to 200, if your player gets punished for no reason try changing the MaxYLevel, or disable YLevelDetections.
 ```
-More Documentations coming soon!
+## Functions
+```lua
+local RubyAnticheat = shared.RubyAnticheatAPI
+RubyAnticheat.onWarned(function(plr)
+    -- ...
+end)
+```
+↑ onWarned - BETA!
+plr: Player that got warned. (plr.UserId, plr.Name, plr.DisplayName, and other stuff inherited by Instance Properties/Functions)
+```lua
+local RubyAnticheat = shared.RubyAnticheatAPI
+RubyAnticheat.Punish(plr,kickreason,fakelagcharacterseconds)
+```
+↑ Punishes player in any way selected in shared.RubyAnticheatAPI.Configurations.Punishment
