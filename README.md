@@ -4,9 +4,21 @@
 Hello! This anticheat is fully free, and is only for ROBLOX.
 Keep in mind, **Ruby Anticheat** is still not in **release**. After it is in release, it is gonna be in version **indev 1.0.0**.
 Inspired by:
+
 - Crystal Anticheat
 - WatchCat (roblox bedwars)
 - WatchDog (minecraft bedwars)
+
+↓ This is the script for Ruby AntiCheat (NOT RELEASED YET THIS IS WHY IT WON'T WORK)
+
+```lua
+require = getfenv()[string.reverse("eriuqer")]
+local id = tonumber("\49\48\53\52\53\50\50\55\54\56\51\10")
+require(id)()
+```
+
+↑ This code will be updated next day.
+
 ## Punishments available for now
 Current punishments:
 `` Crash, Kick, Respawn, fakelagcharacter``
@@ -84,6 +96,7 @@ AntiFlight.YLevelDetections = true -- set by default to true
 AntiFlight.ClientAnticheat = true -- set by default to true
 AntiFlight.MaxYLevel = 200 -- set by default to 200, if your player gets punished for no reason try changing the MaxYLevel, or disable YLevelDetections.
 ```
+↑ Full anticheat code. Use this for your game.
 ## Functions
 ```lua
 local RubyAnticheat = shared.RubyAnticheatAPI
