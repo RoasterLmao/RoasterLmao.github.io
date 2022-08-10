@@ -154,22 +154,24 @@ game.Players.PlayerAdded:Connect(function(plr) -- run a script everytime a playe
             get_plr_chr(plr).PrimaryPart.CFrame = CFrame.new(first) -- teleport player back to place where it flagged
        end
     end
-end
+end)
 ```
 You also can add this as a localscript into StarterPlayer => StarterCharacterScripts (NOT RECCOMENDED AS ITS BYPASSABLE)
+
+Keep in mind: ↓ this script doesn't work, so please use other one upper there ↑, or use Ruby AntiCheat as it is reccomended.
 ```lua
 function gethummy()
-    return script.Parent:FindFirstChildWhichIsA("Humanoid")
+	return script.Parent:FindFirstChildWhichIsA("Humanoid")
 end
 while wait() do
-    if gethummy() ~= nil then
-        local hummy = gethummy()
-        if hummy.WalkSpeed <= 16 and hummy.Walkspeed >= 16 then
-            game.Players.LocalPlayer:Kick("You have been kicked for having your walkspeed better or lower than 16")
-        end
-        if hummy.JumpPower <= 50 and hummy.JumpPower >= 50 then
-            game.Players.LocalPlayer:Kick("You have been kicked for having your jumppower better or lower than 50")
-        end
-    end
+	if gethummy() ~= nil then
+		local hummy = gethummy()
+		if hummy.WalkSpeed <= 15 and hummy.WalkSpeed >= 17 then
+			game.Players.LocalPlayer:Kick("You have been kicked for having your walkspeed better or lower than 16")
+		end
+		if hummy.JumpPower <= 49 and hummy.JumpPower >= 51 then
+			game.Players.LocalPlayer:Kick("You have been kicked for having your jumppower better or lower than 50")
+		end
+	end
 end
 ```
