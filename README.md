@@ -97,3 +97,27 @@ local RubyAnticheat = shared.RubyAnticheatAPI
 RubyAnticheat.Punish(plr,kickreason,fakelagcharacterseconds)
 ```
 ↑ Punishes player in any way selected in shared.RubyAnticheatAPI.Configurations.Punishment
+## How to make your own AntiCheat?
+Remember, use the Client AntiCheat for any purposes you want, but i highly reccomend you some checks and use the server anticheat.
+Exploiters can spoof your walkspeed by using this script (roblox studio cannot access it):
+```lua
+local meta = getrawmetatable(game) -- gets the game metatable.
+local old = meta.__newindex -- gets the newindex from the metatable.
+setreadonly(meta, false) -- allows exploiters to edit the metatable.
+meta.__newindex = newcclosure(function(self,property,value) -- get all indexed values.
+if self:IsA("Humanoid") and property == "WalkSpeed" and value <= 16 then
+-- ↑ Check if the indexed instance is humanoid, after it is checks if the property is "WalkSpeed" and then checks if the value is lower than 16, and if it is then returns to the instance the property and then the value. (Simply self.WalkSpeed = 16)
+return old(self,property,16)
+end
+return old(self,property,value)
+end)
+```
+↑ This script spoofs the exploiter's WalkSpeed if it changes.
+Learn about exploiters here: https://devforum.roblox.com/t/exploiters-and-how-they-spoof-stuff-in-your-own-game/695958
+Learn about making anticheats here: https://devforum.roblox.com/t/making-an-strong-anti-cheat-and-anti-hack-code/1884582/3
+What you must know about client and server: https://developer.roblox.com/en-us/articles/Roblox-Client-Server-Model
+One free AntiCheat i found: https://devforum.roblox.com/t/robos-anti-cheat/1912416
+How exploiters bypass client sided anticheats: https://www.youtube.com/watch?v=cOzWLv_2iWs
+How to make a perfect anticheat for your game like this one:
+Simple Anticheats (for begginers and starters): [Simple anticheats](https://www.youtube.com/watch?v=K2T6UNKq_E8)
+Advanced Anticheats (for people that know already scripting): [Advanced Anticheats](https://www.youtube.com/watch?v=yMHN08m_56k)
