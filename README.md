@@ -2,6 +2,9 @@
 ![Logo](https://user-images.githubusercontent.com/110973471/183887863-a727dc59-ba41-40a0-982e-2df761c2b195.png)
 
 Hello! This anticheat is fully free, and is only for ROBLOX.
+
+Press [this](https://discord.gg/CWzpTJphxu) to join Ruby's AntiCheat Discord server.
+
 Keep in mind, **Ruby Anticheat** is still not in **release**. After it is in release, it is gonna be in version **indev 1.0.0**.
 Inspired by:
 
@@ -98,6 +101,56 @@ AntiFlight.MaxYLevel = 200 -- set by default to 200, if your player gets punishe
 ```
 ↑ Full anticheat code. Use this for your game.
 ## Functions
+```lua
+--[[
+If you do not know how to send a text into a webhook, use this: (replace anything do whatever u want)
+local msg = {
+	["contents"] = "",
+	["username"] = "username here",
+	["avatar_url"] = "image here",
+	["embeds"] = {{
+		["title"]= "embed name here",
+		["description"] = "description here",
+		["type"]= "rich",
+		["color"]= tonumber(0xF1C232),
+		["fields"]={
+			{
+				["name"]="field 1 name",
+				["value"]="field 1 text (value)",
+				["inline"]=true
+			}
+		}
+	}
+	}
+}
+--]]
+local webhookmsg = {
+	["contents"] = "",
+	["username"] = "username here",
+	["avatar_url"] = "image here",
+	["embeds"] = {{
+		["title"]= "embed name here",
+		["description"] = "description here",
+		["type"]= "rich",
+		["color"]= tonumber(0xF1C232),
+		["fields"]={
+			{
+				["name"]="field 1 name",
+				["value"]="field 1 text (value)",
+				["inline"]=true
+			}
+		}
+	}
+	}
+}
+
+shared.RubyAnticheatAPI.PublishToDiscord(
+```
+↑ Uploads a message to your webhook. (Works on Discord, Guilded, Sentry)
+```lua
+shared.RubyAnticheatAPI.Configuration.Webhook = "any webhook here"
+```
+↑ replace the any webhook here with your webhook, example: "https://discord.com/webhook/id"
 ```lua
 local RubyAnticheat = shared.RubyAnticheatAPI
 RubyAnticheat.onWarned(function(plr)
