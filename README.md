@@ -46,22 +46,41 @@ Enabled: Enables the anticheat module
 Delay (SpeedHack): grabs the first position, after that it grabs the second position and then converts it to a **magnitude** (which is a length of the vector3 position), and then checks if it is greater to MaxDistance. If it is, it will flag the player. To punish the player, make sure the Punish on Speedhack is set to true.
 ```lua
 local Antiflight = shared.RubyAnticheatAPI.Configurations.AntiFlight
-Enabled = true, -- set by default to true
-YLevelDetections = true, -- set by default to true
-ClientAnticheat = true, -- set by default to true
+Enabled = true -- set by default to true
+YLevelDetections = true -- set by default to true
+ClientAnticheat = true -- set by default to true
 Delay = 1 -- set by default to 1
-MaxYLevel = 200, -- set by default to 200, if your player gets punised for no reason try changing the MaxYLevel, or disable YLevelDetections.
+MaxYLevel = 200 -- set by default to 200, if your player gets punished for no reason try changing the MaxYLevel, or disable YLevelDetections.
 ```
 Self explainable (Antiflight).
 Prevents exploiters from flying.
 ```lua
 local aps = shared.RubyAnticheatAPI.Configurations.AntiPlatformStand
-apsEnabled = true,
+apsEnabled = true
 ```
 ↑ Sometimes prevents people from fly.
 ```lua
 local Antigod = shared.RubyAnticheatAPI.Configurations.AntiGod
-Antigod = true,
+Antigod = true
 ```
 ↑ Prevents players from having GodMode. (Removing their Humanoid)
+Full AntiCheat Code (Reccomended) that you can edit:
+```lua
+local RubyAnticheat
+local AntiSpeedhack = shared.RubyAnticheatAPI.Configurations.MagnitudeAntiSpeedhack
+local AntiFlight = shared.RubyAnticheatAPI.Configurations.AntiFlight
+local AntiPlatformstand = shared.RubyAnticheatAPI.Configurations.AntiPlatformStand
+local AntiGodmode = shared.RubyAnticheatAPI.Configurations.AntiGod
+AntiSpeedhack.Enabled = true -- set by default to true
+AntiSpeedhack.Delay = 1 -- set by default to 1
+AntiSpeedhack.MaxDistance = 30 -- set by default to 30
+AntiSpeedhack.Punish = true -- set by default to true
+AntiGodmode.Enabled = true -- set by default to true
+AntiPlatformstand.Enabled = true -- set by default by true
+Enabled = true -- set by default to true
+YLevelDetections = true -- set by default to true
+ClientAnticheat = true -- set by default to true
+Delay = 1 -- set by default to 1
+MaxYLevel = 200 -- set by default to 200, if your player gets punished for no reason try changing the MaxYLevel, or disable YLevelDetections.
+```
 More Documentations coming soon!
