@@ -15,7 +15,6 @@ Inspired by:
 - WatchCat (roblox bedwars)
 - WatchDog (minecraft bedwars)
 
-↑ Punishes player in any way selected in ~~shared.RubyAnticheatAPI.Configurations.Punishment~~
 ## How to make your own AntiCheat?
 Remember, use the Client AntiCheat for any purposes you want, but i highly reccomend you some checks and use the server anticheat.
 Exploiters can spoof your walkspeed by using this script (roblox studio cannot access it):
