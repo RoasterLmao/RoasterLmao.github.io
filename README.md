@@ -8,16 +8,14 @@ Hello! This anticheat is fully free, and is only for ROBLOX.
 Press [this](https://discord.gg/CWzpTJphxu) to join Ruby's AntiCheat Discord server.
 
 Keep in mind, **Ruby Anticheat** is still not in **release**. After it is in release, it is gonna be in version **indev 1.0.0**.
+
 Inspired by:
 
 - Crystal Anticheat
 - WatchCat (roblox bedwars)
 - WatchDog (minecraft bedwars)
-```lua
-local RubyAnticheat = shared.RubyAnticheatAPI
-RubyAnticheat.Punish(plr,kickreason,fakelagcharacterseconds)
-```
-↑ Punishes player in any way selected in shared.RubyAnticheatAPI.Configurations.Punishment
+
+↑ Punishes player in any way selected in ~~shared.RubyAnticheatAPI.Configurations.Punishment~~
 ## How to make your own AntiCheat?
 Remember, use the Client AntiCheat for any purposes you want, but i highly reccomend you some checks and use the server anticheat.
 Exploiters can spoof your walkspeed by using this script (roblox studio cannot access it):
