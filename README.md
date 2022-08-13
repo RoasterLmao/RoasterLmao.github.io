@@ -1,5 +1,5 @@
 # Ruby Anticheat
-**CURRENTLY REWRITING!**
+**RELEASED! (VERSION INDEV 1.2.2)**
 
 ![Logo](https://user-images.githubusercontent.com/110973471/183887863-a727dc59-ba41-40a0-982e-2df761c2b195.png)
 
@@ -14,6 +14,47 @@ Inspired by:
 - Crystal Anticheat
 - WatchCat (roblox bedwars)
 - WatchDog (minecraft bedwars)
+
+## Features
+- Anti illegal guis (PlayerGui only & no whitelist for now)
+- AntiGodMode
+- Credits (set to off by default to not annoy players, if you want to help us set this to on)
+egc
+## Documentary
+
+```lua
+_G.RubyAnticheatAPI.Exploiters -- _G.RubyAnticheatAPI.Exploiters = {} --[[ [1] ]]--
+```
+↑ Gets all the exploiters IN A TABLE. (get an exploiter using table.find(_G.RubyAnticheatAPI.Exploiters, <playerInstance>)
+```lua
+_G.RubyAnticheatAPI.Punish(obj > <playerInstance>)
+-- _G.RubyAnticheatAPI.Punish(game.Players.ExploiterNameHere)
+```
+↑ Custom (punishes a player with the chosen punishondetection setting)
+```lua
+_G.RubyAnticheatAPI.Configurations[Configuration]
+--[[
+_G.RubyAnticheatAPI.Configurations.Credits = true -- set this to true if you wan't to give us credits (logo at bottom right)
+_G.RubyAnticheatAPI.Configurations.PunishmentOnDetection = "Crash"
+
+_G.RubyAnticheatAPI.Configurations.Anticheat.AntiSpeed.Enabled = true
+_G.RubyAnticheatAPI.Configurations.Anticheat.AntiSpeed.Distance = 22
+]]
+```
+↑ Allows you to edit the configurations for Ruby Anticheat.
+```lua
+_G.RubyAnticheatAPI.getExploiters();
+```
+↑ Returns a table with all the exploiters that got punished.
+```lua
+_G.RubyAnticheatAPI.Credits.SetPosition(UDim2Position);
+_G.RubyAnticheatAPI.Credits.GetPosition();
+```
+.GetPosition gets the position of the credits frame.
+.SetPosition sets the position of the credits frame.
+CURRENT UDIM2 POSITION: UDim2.new(0.843, 0,0.775, 0)
+
+``more coming soon``
 
 ## How to make your own AntiCheat?
 Remember, use the Client AntiCheat for any purposes you want, but i highly reccomend you some checks and use the server anticheat.
