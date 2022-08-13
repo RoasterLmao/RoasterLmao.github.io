@@ -6,6 +6,7 @@
 Hello! This anticheat is fully free, and is only for ROBLOX.
 
 Press [this](https://discord.gg/CWzpTJphxu) to join Ruby's AntiCheat Discord server.
+
 Press [this](https://www.guilded.gg/i/kbZL4o4k) to join Ruby's AntiCheat Guilded server.
 
 Keep in mind, **Ruby Anticheat** is still not in **release**. After it is in release, it is gonna be in version **indev 1.0.0**.
