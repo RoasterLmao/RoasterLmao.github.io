@@ -23,18 +23,36 @@ egc
 ## Documentary
 
 ```lua
-<_G> _G.RubyAnticheatAPI. (<config/setting/function> <void>)
+_G.RubyAnticheatAPI.Exploiters -- _G.RubyAnticheatAPI.Exploiters = {} --[[ [1] ]]--
 ```
-Access the API from any serverscript. Example: _G.RubyAnticheatAPI.getVersion();
-
-↑ Access any api function/configurations/number from this simple script. Learn functions from **functions** section.
-
-#### hi
-
+↑ Gets all the exploiters IN A TABLE. (get an exploiter using table.find(_G.RubyAnticheatAPI.Exploiters, <playerInstance>)
 ```lua
-<_G> _G.RubyAnticheatAPI.Configurations (<table/string/bool>: {conf > anticheatmodule > config/number = val/str = "val"/ = true/false})
--- _G.RubyAnticheatAPI.Configurations.Anticheat.AntiSpeed.MaxDistance = 21 (20 set as default)
+_G.RubyAnticheatAPI.Punish(obj > <playerInstance>)
+-- _G.RubyAnticheatAPI.Punish(game.Players.ExploiterNameHere)
 ```
+↑ Custom (punishes a player with the chosen punishondetection setting)
+```lua
+_G.RubyAnticheatAPI.Configurations[Configuration]
+--[[
+_G.RubyAnticheatAPI.Configurations.Credits = true -- set this to true if you wan't to give us credits (logo at bottom right)
+_G.RubyAnticheatAPI.Configurations.PunishmentOnDetection = "Crash"
+
+_G.RubyAnticheatAPI.Configurations.Anticheat.AntiSpeed.Enabled = true
+_G.RubyAnticheatAPI.Configurations.Anticheat.AntiSpeed.Distance = 22
+]]
+```
+↑ Allows you to edit the configurations for Ruby Anticheat.
+```lua
+_G.RubyAnticheatAPI.getExploiters();
+```
+↑ Returns a table with all the exploiters that got punished.
+```lua
+_G.RubyAnticheatAPI.Credits.SetPosition(UDim2Position);
+_G.RubyAnticheatAPI.Credits.GetPosition();
+```
+.GetPosition gets the position of the credits frame.
+.SetPosition sets the position of the credits frame.
+CURRENT UDIM2 POSITION: UDim2.new(0.843, 0,0.775, 0)
 
 ``more coming soon``
 
