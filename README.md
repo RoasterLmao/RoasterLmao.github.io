@@ -1,5 +1,5 @@
 # Ruby Anticheat
-**RELEASED! (VERSION INDEV 1.2.2)**
+**CURRENTLY REWRITING!**
 
 ![Logo](https://user-images.githubusercontent.com/110973471/183887863-a727dc59-ba41-40a0-982e-2df761c2b195.png)
 
@@ -7,7 +7,7 @@ Hello! This anticheat is fully free, and is only for ROBLOX.
 
 Press [this](https://discord.gg/CWzpTJphxu) to join Ruby's AntiCheat Discord server.
 
-Press [this](https://www.guilded.gg/i/kbZL4o4k) to join Ruby's AntiCheat Guilded server.
+Keep in mind, **Ruby Anticheat** is still not in **release**. After it is in release, it is gonna be in version **indev 1.0.0**.
 
 Inspired by:
 
@@ -45,7 +45,7 @@ _G.RubyAnticheatAPI.Configurations.Anticheat.AntiSpeed.Distance = 22
 ```lua
 _G.RubyAnticheatAPI.getExploiters();
 ```
-↑ Returns a table with all the exploiters that got punished.
+↑ Returns a table with all the exploiters that got punished. ( for example: _G.RubyAnticheatAPI.getExploiters[1] )
 ```lua
 _G.RubyAnticheatAPI.Credits.SetPosition(UDim2Position);
 _G.RubyAnticheatAPI.Credits.GetPosition();
@@ -53,6 +53,22 @@ _G.RubyAnticheatAPI.Credits.GetPosition();
 .GetPosition gets the position of the credits frame.
 .SetPosition sets the position of the credits frame.
 CURRENT UDIM2 POSITION: UDim2.new(0.843, 0,0.775, 0)
+```lua
+_G.RubyAnticheatAPI.Punish(plrhere <playerObject>)
+```
+↑ Punishes the player in "plrhere". Used by the anticheat. ↓ READ MORE HERE:
+Punishes the player just by selecting a punishment in _G.RubyAnticheatAPI.Configurations.PunishmentOnDetection
+
+Available: Punishments
+```lua
+crash - self explainable.
+kick - self explainable.
+ban - datastore not set up yet, doesn't work.
+fakelag - makes the player's character heavy. Stops after 3 seconds.
+permalag - makes the player's character heavy. This does never stop.
+permareallag - makes the player's gameplay unplayable (strong lagspike every 1 second)
+autorespawn - makes the player automically respawn every 1sec/25milisec.
+```
 
 ``more coming soon``
 
