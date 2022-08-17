@@ -120,8 +120,8 @@ function get_plr_chr(plr): Model -- get players character
 end
 game.Players.PlayerAdded:Connect(function(plr) -- run a script everytime a player joins
 	while wait() do -- loop
-		if not plr:FindFirstChild("HumanoidRootPart") then
-			repeat wait() until plr:FindFirstChild("HumanoidRootPart")
+		if not plr.Character:FindFirstChild("HumanoidRootPart") then
+			repeat wait() until plr.Character:FindFirstChild("HumanoidRootPart")
 		end
 		local first = get_plr_chr(plr):FindFirstChild("HumanoidRootPart").Position -- get first position
 		wait(1) -- wait 1 second
