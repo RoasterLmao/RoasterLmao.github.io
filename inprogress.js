@@ -1,3 +1,3 @@
-var str = "Hello! Ruby Anticheat is still in progress and not released, please wait!"
+var str = "Hello! Ruby Anticheat has been released!"
 console.log(str)
 alert(str)
