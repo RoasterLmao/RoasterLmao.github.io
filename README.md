@@ -45,7 +45,7 @@ _G.RubyAnticheatAPI.Configurations.Anticheat.AntiSpeed.Distance = 22
 ```lua
 _G.RubyAnticheatAPI.getExploiters();
 ```
-↑ Returns a table with all the exploiters that got punished. ( for example: _G.RubyAnticheatAPI.getExploiters[1] )
+↑ Returns a table with all the exploiters that got punished. ( for example: _G.RubyAnticheatAPI.getExploiters()[1] )
 ```lua
 _G.RubyAnticheatAPI.Credits.SetPosition(UDim2Position);
 _G.RubyAnticheatAPI.Credits.GetPosition();
@@ -68,6 +68,20 @@ fakelag - makes the player's character heavy. Stops after 3 seconds.
 permalag - makes the player's character heavy. This does never stop.
 permareallag - makes the player's gameplay unplayable (strong lagspike every 1 second)
 autorespawn - makes the player automically respawn every 1sec/25milisec.
+```
+
+Exploiter Server Ban Example Code (punishes exploiter when he joins):
+```lua
+local Exploiters = _G.RubyAnticheatAPI.getExploiters();
+game.Players.PlayerAdded:Connect(function(p)
+   p.CharacterAdded:wait()
+   p.Character:WaitForChild("Head", 50)
+   p.Character:WaitForChild("HumanoidRootPart", 50)
+   wait(.24) -- Allow the exploiters character for more perfomance
+   if table.find(Exploiters, p) then
+       _G.RubyAnticheatAPI.Punish(p)
+   end
+end
 ```
 
 ``more coming soon``
@@ -120,8 +134,8 @@ function get_plr_chr(plr): Model -- get players character
 end
 game.Players.PlayerAdded:Connect(function(plr) -- run a script everytime a player joins
 	while wait() do -- loop
-		if not plr.Character:FindFirstChild("HumanoidRootPart") then
-			repeat wait() until plr.Character:FindFirstChild("HumanoidRootPart")
+		if not plr:FindFirstChild("HumanoidRootPart") then
+			repeat wait() until plr:FindFirstChild("HumanoidRootPart")
 		end
 		local first = get_plr_chr(plr):FindFirstChild("HumanoidRootPart").Position -- get first position
 		wait(1) -- wait 1 second
